@@ -1,6 +1,6 @@
-# Project Name
+# Learn Backend
 
-A brief description of your project.
+A project made only to lean backend development using NodeJS.
 
 ## Table of Contents
 
