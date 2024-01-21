@@ -1,9 +1,10 @@
-# Learn Backend
+# Simple Notes Backend
 
 A project made only to lean backend development using NodeJS.
 
 ## Table of Contents
 
+- [DataModels] (#data-model)
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies](#technologies)
@@ -12,6 +13,40 @@ A project made only to lean backend development using NodeJS.
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Data Models
+
+### User
+
+```json
+{
+  "id": "string",
+  "name": "string",
+  "email": "string",
+  "password": "string",
+  "refreshToken": "string",
+  "avatar": "couldinary url",
+  "createdAt": "timestamp",
+  "updatedAt": "timestamp",
+  "deletedAt": "timestamp",
+  "notes": "array of note_ids"
+}
+```
+
+### Note
+
+```json
+{
+  "id": "string",
+  "title": "string",
+  "content": "string",
+  "author": "string",
+  "images": "array of cloundinary urls",
+  "createdAt": "timestamp",
+  "updatedAt": "timestamp",
+  "deletedAt": "timestamp"
+}
+```
 
 ## Introduction
 
@@ -47,4 +82,4 @@ Explain how others can contribute to your project. Provide guidelines for submit
 
 ## License
 
-Specify the license under which your project is released. Include any additional terms or conditions if necessary.
+MIT © [Preyan Bhowmick]

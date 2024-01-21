@@ -1,5 +1,5 @@
 {
-  "name": "learn-backend",
+  "name": "simple-notes-backend",
   "version": "0.0.1",
   "description": "A project to help learn backend development",
   "main": "index.js",
@@ -10,7 +10,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "learn",
     "backend",
     "node",
     "express",
