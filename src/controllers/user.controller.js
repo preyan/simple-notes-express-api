@@ -1,4 +1,4 @@
-import { asyncHandler } from '../middlewares/async';
+import { asyncHandler } from '../utils/asyncHandler.js';
 
 /**
  * Registers a user.
@@ -10,7 +10,7 @@ import { asyncHandler } from '../middlewares/async';
 const registerUser = asyncHandler(async (req, res, next) => {
   res
     .status(200)
-    .json({ success: true, message: 'User Registration Successful' });
+    .json({ success: true, message: 'User registered successfully' });
 });
 
 export { registerUser };
