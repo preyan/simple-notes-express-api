@@ -29,7 +29,7 @@ A project made only to lean backend development using NodeJS.
   "createdAt": "timestamp",
   "updatedAt": "timestamp",
   "deletedAt": "timestamp",
-  "notes": "array of note_ids"
+  "notes": "array of note_id"
 }
 ```
 
@@ -40,7 +40,7 @@ A project made only to lean backend development using NodeJS.
   "id": "string",
   "title": "string",
   "content": "string",
-  "author": "string",
+  "author": "user_id",
   "images": "array of cloundinary urls",
   "createdAt": "timestamp",
   "updatedAt": "timestamp",
