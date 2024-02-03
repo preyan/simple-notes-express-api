@@ -21,3 +21,7 @@ export const getNotes = (authorId = asyncHandler(async (req, res, next) => {
   }
   return res.status(200).json(new ApiResponse(notes));
 }));
+
+export const noteController = {
+  getNotes,
+};
