@@ -15,13 +15,17 @@ import { cookieOptions } from '../constants.js';
 const generateAccessAndRefreshToken = async (userId) => {
   try {
     const user = await User.findById(userId);
-    const refreshToken = User.generateRefreshToken();
-    const accessToken = User.generateAccessToken();
+
+    //Below `user` is an instance of the User model, (Ref: Line 17)
+    const refreshToken = user.generateRefreshToken();
+    const accessToken = user.generateAccessToken();
+
     user.refreshToken = refreshToken;
     await user.save({ validateBeforeSave: false }); //This is to avoid the pre-save middleware from running during the update operation
+
     return { accessToken, refreshToken };
   } catch (error) {
-    throw new ApiError(500, 'Access token generation failed');
+    throw new ApiError(500, 'Access or Refresh token generation failed');
   }
 };
 
@@ -146,7 +150,7 @@ const loginUser = asyncHandler(async (req, res) => {
     .status(200)
     .cookie('refreshToken', refreshToken, cookieOptions)
     .cookie('accessToken', accessToken, cookieOptions)
-    .json(new ApiResponse(200, user, 'User logged in successfully'));
+    .json(new ApiResponse(200, loggedInUser, 'User logged in successfully'));
 });
 
 /**
