@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-
+import mongooseAggregatePaginate from 'mongoose-aggregate-paginate-v2';
 /**
  * Represents a note in the system.
  * @typedef {Object} Note
