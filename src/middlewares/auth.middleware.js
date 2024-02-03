@@ -1,5 +1,5 @@
-import { asyncHandler } from '../utils/asyncHandler';
-import { jwt } from 'jsonwebtoken';
+import { asyncHandler } from '../utils/asyncHandler.js';
+import jwt from 'jsonwebtoken';
 
 export const verifyJWTToken = asyncHandler(async (req, res, next) => {
   try {
