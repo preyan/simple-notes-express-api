@@ -17,8 +17,8 @@ const generateAccessAndRefreshToken = async (userId) => {
     const user = await User.findById(userId);
 
     //Below `user` is an instance of the User model, (Ref: Line 17)
-    const refreshToken = await user.generateRefreshToken();
-    const accessToken = await user.generateAccessToken();
+    const refreshToken = await user.generateRefreshToken(); // await is used to wait for the promise to resolve since `generateRefreshToken` is an async function
+    const accessToken = await user.generateAccessToken(); // await is used to wait for the promise to resolve since `generateAccessToken` is an async function
 
     user.refreshToken = refreshToken;
     await user.save({ validateBeforeSave: false }); //This is to avoid the pre-save middleware from running during the update operation
@@ -135,8 +135,6 @@ const loginUser = asyncHandler(async (req, res) => {
   const { accessToken, refreshToken } = await generateAccessAndRefreshToken(
     user._id
   );
-
-  console.log('Tokens:', accessToken, refreshToken);
 
   //!IMPORTANT : Judge if query is stressing the server, if yes do it the user object itself, else directly update the database
   const loggedInUser = await User.findById(user._id).select(
