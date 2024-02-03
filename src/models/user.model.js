@@ -80,7 +80,7 @@ userSchema.pre('save', async function (next) {
  * @param {string} password - The password to verify.
  * @returns {Promise<boolean>} - A promise that resolves to true if the password matches, or false if it does not.
  */
-userSchema.methods.isPasswordMatch = async function (password) {
+userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
