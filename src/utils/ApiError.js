@@ -1,4 +1,16 @@
+/**
+ * Represents an API error.
+ * @class
+ * @extends Error
+ */
 class ApiError extends Error {
+  /**
+   * Creates an instance of ApiError.
+   * @param {number} statusCode - The HTTP status code of the error.
+   * @param {string} [message='Something went wrong'] - The error message.
+   * @param {Array} [errors=[]] - An array of error objects.
+   * @param {string} [stack=''] - The error stack trace.
+   */
   constructor(
     statusCode,
     message = 'Something went wrong',
@@ -16,3 +28,5 @@ class ApiError extends Error {
     else Error.captureStackTrace(this, this.constructor);
   }
 }
+
+export default ApiError;
