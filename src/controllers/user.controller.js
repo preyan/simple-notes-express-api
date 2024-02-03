@@ -338,6 +338,13 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
   if (!avatar) {
     throw new ApiError(500, 'Avatar upload to Cloudinary failed');
   }
+
+  /**
+   * Get the public ID of the old avatar by splitting the URL and getting the last part of the URL.
+   * `Example: https://res.cloudinary.com/dk5b3fj6p/image/upload/v1634171234/avatars/oldAvatarPublicId.jpg`
+   */
+  const oldAvatarPublicId = req.user?.avatar?.split('/').pop()?.split('.')[0];
+
   const user = await User.findByIdAndUpdate(
     req.user?._id,
     {
@@ -349,6 +356,12 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
   ).select('-password -refreshToken');
   if (!user) {
     throw new ApiError(500, 'User avatar update in database failed');
+  }
+  if (oldAvatarPublicId) {
+    await deleteFromCloudinary(oldAvatarPublicId);
+  }
+  if (!oldAvatarPublicId) {
+    throw new ApiError(500, 'Old avatar deletion from Cloudinary failed');
   }
   return res
     .status(200)
