@@ -26,6 +26,10 @@ export const verifyJWTToken = asyncHandler(async (req, res, next) => {
     if (!user) {
       throw new ApiError(404, 'Invalid access token OR User not found');
     }
+
+    req.user = user; // Set the user object in the request object
+
+    next(); // Call the next middleware
   } catch (error) {
     throw new ApiError(401, error?.message || 'Invalid Access token');
   }
