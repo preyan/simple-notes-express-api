@@ -7,7 +7,7 @@ import bcrypt from 'bcrypt';
  * @typedef {Object} User
  * @property {string} username - The username of the user.
  * @property {string} email - The email address of the user.
- * @property {string} fullname - The full name of the user.
+ * @property {string} fullName - The full name of the user.
  * @property {string} avatar - The URL to the user's avatar image provided by Cloudinary.
  * @property {Schema.Types.ObjectId[]} notes - An array of note IDs associated with the user.
  * @property {string} password - The password of the user.
@@ -35,7 +35,7 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true,
     },
-    fullname: {
+    fullName: {
       type: String,
       required: true,
       trim: true,
