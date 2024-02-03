@@ -137,6 +137,10 @@ const loginUser = asyncHandler(async (req, res, next) => {
     '-password -refreshToken'
   );
 
+  if (!loggedInUser) {
+    throw new ApiError(500, 'User login failed on our end');
+  }
+
   //Creates a new user, sets refreshToken and accessToken is cookies and return a success message
   res
     .status(200)
