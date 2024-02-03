@@ -4,6 +4,7 @@ import ApiResponse from '../utils/apiResponse.js';
 import UserValidator from '../validators/user.validator.js';
 import { User } from '../models/user.model.js';
 import { uploadOnCloudinary } from '../utils/cloudinary.js';
+import { cookieOptions } from '../constants.js';
 
 /**
  * Generates access and refresh tokens for a given user ID.
@@ -103,7 +104,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
   const { email, username, password } = req.body;
 
   //Check if any field is empty
-  if (!email || !username) {
+  if (!(email || username)) {
     throw new ApiError(400, 'Username or email is required');
   }
   if (!password) {
@@ -120,7 +121,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
   }
 
   //Check if the password is correct
-  const isPasswordMatch = await user.isPasswordCorrect(password); // `user` is an instance of the User model, (Ref: Line 86)
+  const isPasswordMatch = await user.isPasswordCorrect(password); // Here `user` is an instance of the User model, (Ref: Line 86)
 
   if (!isPasswordMatch) {
     throw new ApiError(401, 'Invalid password');
@@ -135,10 +136,6 @@ const loginUser = asyncHandler(async (req, res, next) => {
   const loggedInUser = await User.findById(user._id).select(
     '-password -refreshToken'
   );
-  const cookieOptions = {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-  };
 
   //Creates a new user, sets refreshToken and accessToken is cookies and return a success message
   res
@@ -155,6 +152,22 @@ const loginUser = asyncHandler(async (req, res, next) => {
  * @param {Object} res - The response object.
  * @returns {Promise<void>} - A promise that resolves when the user is logged out.
  */
-const logoutUser = asyncHandler(async (req, res) => {});
+const logoutUser = asyncHandler(async (req, res) => {
+  await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $set: { refreshToken: undefined },
+    },
+    {
+      new: true,
+    }
+  );
 
-export { registerUser, loginUser };
+  return res
+    .status(200)
+    .clearCookie('refreshToken', cookieOptions)
+    .clearCookie('accessToken', cookieOptions)
+    .json(new ApiResponse(200, null, 'User logged out successfully'));
+});
+
+export { registerUser, loginUser, logoutUser };

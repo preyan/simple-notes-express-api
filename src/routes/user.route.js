@@ -1,5 +1,9 @@
 import { Router } from 'express';
-import { loginUser, registerUser } from '../controllers/user.controller.js';
+import {
+  loginUser,
+  registerUser,
+  logoutUser,
+} from '../controllers/user.controller.js';
 import { upload } from '../middlewares/multer.middleware.js';
 import { verifyJWTToken } from '../middlewares/auth.middleware.js';
 
@@ -10,9 +14,13 @@ import { verifyJWTToken } from '../middlewares/auth.middleware.js';
 const router = Router();
 
 router.route('/register').post(upload.single('avatar'), registerUser);
-router.route('login').post(loginUser);
+router.route('/login').post(loginUser);
 
 //Secured routes
-router.route('logout').post(verifyJWTToken, logoutUser);
+router.route('/logout').post(verifyJWTToken, logoutUser);
+
+// You can add multiple middlewares like this.
+// router.route('logout').post(verifyJWTToken, AnotherMiddleware, logoutUser);
+// AnotherMiddleware is a placeholder for another middleware
 
 export default router;
