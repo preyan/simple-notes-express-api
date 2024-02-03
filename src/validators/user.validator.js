@@ -1,14 +1,16 @@
 /**
- * Checks if any field in the form is empty.
- * @param {Array} formFields The form fields to be checked.
- * @returns {boolean} Returns `true` if any field is empty, otherwise `false`.
+ * Checks if any of the form fields are empty or unavailable (undefined or null).
+ * @param {Array} formFields - The form fields to check.
+ * @returns {boolean} - True if any form field is empty or unavailable, false otherwise.
  */
-const isFieldsEmpty = (formFields) => {
-  return formFields.some((field) => field?.trim() === '');
+const isEmptyOrUnavailable = (formFields) => {
+  return formFields.some(
+    (field) => field === undefined || field === null || field?.trim() === ''
+  );
 };
 
 const UserValidator = {
-  isFieldsEmpty,
+  isEmptyOrUnavailable,
 };
 
 export default UserValidator;
