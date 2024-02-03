@@ -1,7 +1,7 @@
 import { asyncHandler } from '../utils/asyncHandler.js';
 import ApiError from '../utils/apiError.js';
 import ApiResponse from '../utils/apiResponse.js';
-import UserValidator from '../validators/user.validator.js';
+import { UserValidator } from '../validators/user.validator.js';
 import { User } from '../models/user.model.js';
 import { uploadOnCloudinary } from '../utils/cloudinary.js';
 import { cookieOptions } from '../constants.js';
@@ -237,4 +237,131 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
   }
 });
 
-export { registerUser, loginUser, logoutUser, refreshAccessToken };
+/**
+ * Change the password for a user.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} A promise that resolves when the password is changed successfully.
+ * @throws {ApiError} - If the old password and new password are the same, or if they are not provided, or if the old password is incorrect.
+ */
+const changePassword = asyncHandler(async (req, res) => {
+  const { oldPassword, newPassword } = req.body;
+
+  if (oldPassword === newPassword) {
+    throw new ApiError(400, 'Old password and new password cannot be the same');
+  }
+  if (!oldPassword || !newPassword) {
+    throw new ApiError(400, 'Both old and new password are required');
+  }
+
+  const user = await User.findById(req.user._id);
+  const isPasswordMatch = await user.isPasswordCorrect(oldPassword);
+
+  if (!isPasswordMatch) {
+    throw new ApiError(401, 'Incorrect old password');
+  }
+
+  user.password = newPassword;
+  await user.save({ validateBeforeSave: false });
+
+  res
+    .status(200)
+    .json(new ApiResponse(200, null, 'Password changed successfully'));
+});
+
+/**
+ * Get the current user.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object with the current user information.
+ * @throws {ApiError} If the user is not found.
+ */
+const getCurrentUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id).select(
+    '-password -refreshToken'
+  );
+  if (!user) {
+    throw new ApiError(404, 'User not found');
+  }
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user, 'User found successfully'));
+});
+
+/**
+ * Update user details.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} A promise that resolves when the user information is updated.
+ * @throws {ApiError} - If at least one field (fullName or email) is not provided.
+ */
+const updateUserDetails = asyncHandler(async (req, res) => {
+  const { fullName, email } = req.body;
+  if (!(fullName || email)) {
+    throw new ApiError(400, 'At least one field is required');
+  }
+  const user = await User.findByIdAndUpdate(
+    req.user?._id,
+    {
+      $set: {
+        fullName,
+        email,
+      },
+    },
+    { new: true }
+  ).select('-password -refreshToken');
+  if (!user) {
+    throw new ApiError(500, 'User update failed');
+  }
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user, 'User updated successfully'));
+});
+
+/**
+ * Updates the user's avatar.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The updated user object.
+ * @throws {ApiError} If the avatar is not provided, or if the avatar upload to Cloudinary fails, or if the user avatar update in the database fails.
+ */
+const updateUserAvatar = asyncHandler(async (req, res) => {
+  const avatarLocalPath = req.file?.path;
+  if (!avatarLocalPath) {
+    throw new ApiError(400, 'Avatar is required');
+  }
+  const avatar = await uploadOnCloudinary(avatarLocalPath);
+  if (!avatar) {
+    throw new ApiError(500, 'Avatar upload to Cloudinary failed');
+  }
+  const user = await User.findByIdAndUpdate(
+    req.user?._id,
+    {
+      $set: {
+        avatar: avatar.secure_url,
+      },
+    },
+    { new: true }
+  ).select('-password -refreshToken');
+  if (!user) {
+    throw new ApiError(500, 'User avatar update in database failed');
+  }
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user, 'User avatar updated successfully'));
+});
+
+export const userController = {
+  registerUser,
+  loginUser,
+  logoutUser,
+  refreshAccessToken,
+  changePassword,
+  getCurrentUser,
+  updateUserDetails,
+  updateUserAvatar,
+};
