@@ -9,8 +9,6 @@ const isEmptyOrUnavailable = (formFields) => {
   );
 };
 
-const UserValidator = {
+export const UserValidator = {
   isEmptyOrUnavailable,
 };
-
-export default UserValidator;
