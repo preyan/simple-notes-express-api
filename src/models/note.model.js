@@ -47,6 +47,8 @@ const noteSchema = new Schema(
   }
 );
 
+noteSchema.plugin(mongooseAggregatePaginate); // Add pagination plugin to schema
+
 /**
  * Mongoose model for the Note schema.
  * @type {import('mongoose').Model<Note>}
