@@ -3,6 +3,7 @@ import {
   loginUser,
   registerUser,
   logoutUser,
+  refreshAccessToken,
 } from '../controllers/user.controller.js';
 import { upload } from '../middlewares/multer.middleware.js';
 import { verifyJWTToken } from '../middlewares/auth.middleware.js';
@@ -18,8 +19,12 @@ router.route('/login').post(loginUser);
 
 //Secured routes
 router.route('/logout').post(verifyJWTToken, logoutUser);
+-(
+  //verifyJWTToken is a middleware which checks if the user is authenticated
+  router.route('/refresh-token').post(refreshAccessToken)
+);
 
-// You can add multiple middlewares like this.
+// You can add multiple middlewares like below.
 // router.route('logout').post(verifyJWTToken, AnotherMiddleware, logoutUser);
 // AnotherMiddleware is a placeholder for another middleware
 
