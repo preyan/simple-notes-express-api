@@ -20,7 +20,7 @@ A project made only to lean backend development using NodeJS.
 
 ```json
 {
-  "id": "string",
+  "_id": "string",
   "username": "string",
   "fullname": "string",
   "email": "string",
@@ -33,11 +33,11 @@ A project made only to lean backend development using NodeJS.
 }
 ```
 
-### Notes
+### Note
 
 ```json
 {
-  "id": "string",
+  "_id": "string",
   "title": "string",
   "content": "string",
   "author": "ObjectId user",
