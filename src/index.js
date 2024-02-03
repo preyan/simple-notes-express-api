@@ -12,4 +12,3 @@ dotenv.config({
 });
 
 connectDB();
-init();
