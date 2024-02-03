@@ -17,8 +17,8 @@ const generateAccessAndRefreshToken = async (userId) => {
     const user = await User.findById(userId);
 
     //Below `user` is an instance of the User model, (Ref: Line 17)
-    const refreshToken = user.generateRefreshToken();
-    const accessToken = user.generateAccessToken();
+    const refreshToken = await user.generateRefreshToken();
+    const accessToken = await user.generateAccessToken();
 
     user.refreshToken = refreshToken;
     await user.save({ validateBeforeSave: false }); //This is to avoid the pre-save middleware from running during the update operation
@@ -136,20 +136,22 @@ const loginUser = asyncHandler(async (req, res) => {
     user._id
   );
 
+  console.log('Tokens:', accessToken, refreshToken);
+
   //!IMPORTANT : Judge if query is stressing the server, if yes do it the user object itself, else directly update the database
   const loggedInUser = await User.findById(user._id).select(
     '-password -refreshToken'
   );
 
-  if (!loggedInUser) {
+  if (!loggedInUser || !(accessToken || refreshToken)) {
     throw new ApiError(500, 'Oops! User login failed on our end');
   }
 
-  //Creates a new user, sets refreshToken and accessToken is cookies and return a success message
+  //Logs in the user, clears cookies and then sets refreshToken and accessToken is cookies and return a success message
   res
     .status(200)
-    .cookie('refreshToken', refreshToken, cookieOptions)
-    .cookie('accessToken', accessToken, cookieOptions)
+    .cookie('refreshToken', refreshToken.toString(), cookieOptions)
+    .cookie('accessToken', accessToken.toString(), cookieOptions)
     .json(new ApiResponse(200, loggedInUser, 'User logged in successfully'));
 });
 
