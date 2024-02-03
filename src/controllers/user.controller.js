@@ -89,6 +89,15 @@ const registerUser = asyncHandler(async (req, res, next) => {
     .json(new ApiResponse(201, createdUser, 'User registered successfully'));
 });
 
+/**
+ * Logs in a user.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Function} next - The next middleware function.
+ * @returns {Promise<void>} A promise that resolves when the user is logged in successfully.
+ * @throws {ApiError} - If the username or email is missing, password is missing, user is not found, or password is invalid.
+ */
 const loginUser = asyncHandler(async (req, res, next) => {
   //Get the user data from the request body
   const { email, username, password } = req.body;
@@ -138,5 +147,14 @@ const loginUser = asyncHandler(async (req, res, next) => {
     .cookie('accessToken', accessToken, cookieOptions)
     .json(new ApiResponse(200, user, 'User logged in successfully'));
 });
+
+/**
+ * Logout user.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves when the user is logged out.
+ */
+const logoutUser = asyncHandler(async (req, res) => {});
 
 export { registerUser, loginUser };
