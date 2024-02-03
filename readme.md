@@ -21,27 +21,28 @@ A project made only to lean backend development using NodeJS.
 ```json
 {
   "id": "string",
-  "name": "string",
+  "username": "string",
+  "fullname": "string",
   "email": "string",
   "password": "string",
-  "refreshToken": "string",
-  "avatar": "couldinary url",
+  "notes": "ObjectId[] notes",
+  "refreshToken": "string", // jwt token
+  "avatar": "string", // cloudinary url
   "createdAt": "timestamp",
-  "updatedAt": "timestamp",
-  "deletedAt": "timestamp",
-  "notes": "array of note_id"
+  "updatedAt": "timestamp"
 }
 ```
 
-### Note
+### Notes
 
 ```json
 {
   "id": "string",
   "title": "string",
   "content": "string",
-  "author": "user_id",
-  "images": "array of cloundinary urls",
+  "author": "ObjectId user",
+  "images": "String[]", //array of cloundinary urls
+  "isDeleted": "boolean",
   "createdAt": "timestamp",
   "updatedAt": "timestamp",
   "deletedAt": "timestamp"
