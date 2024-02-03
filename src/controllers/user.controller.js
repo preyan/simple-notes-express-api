@@ -32,7 +32,7 @@ const generateAccessAndRefreshToken = async (userId) => {
  * @param {Function} next - The next middleware function.
  * @returns {Object} The response object with success message.
  */
-const registerUser = asyncHandler(async (req, res, next) => {
+const registerUser = asyncHandler(async (req, res) => {
   //Get the user data from the request body
   const { fullName, username, email, password } = req.body;
 
@@ -81,7 +81,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
   );
 
   if (!createdUser) {
-    throw new ApiError(500, 'User registration failed on our end');
+    throw new ApiError(500, 'Oops! User registration failed on our end');
   }
 
   //Create a new user and return a success message
@@ -99,7 +99,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
  * @returns {Promise<void>} A promise that resolves when the user is logged in successfully.
  * @throws {ApiError} - If the username or email is missing, password is missing, user is not found, or password is invalid.
  */
-const loginUser = asyncHandler(async (req, res, next) => {
+const loginUser = asyncHandler(async (req, res) => {
   //Get the user data from the request body
   const { email, username, password } = req.body;
 
@@ -138,7 +138,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
   );
 
   if (!loggedInUser) {
-    throw new ApiError(500, 'User login failed on our end');
+    throw new ApiError(500, 'Oops! User login failed on our end');
   }
 
   //Creates a new user, sets refreshToken and accessToken is cookies and return a success message
