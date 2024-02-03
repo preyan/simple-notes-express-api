@@ -327,7 +327,9 @@ const updateUserDetails = asyncHandler(async (req, res) => {
  * @param {Object} req - The request object.
  * @param {Object} res - The response object.
  * @returns {Object} The updated user object.
- * @throws {ApiError} If the avatar is not provided, or if the avatar upload to Cloudinary fails, or if the user avatar update in the database fails.
+ * @throws {ApiError} If the avatar is not provided or fails to upload to Cloudinary.
+ * @throws {ApiError} If the user avatar update in the database fails.
+ * @throws {ApiError} If the old avatar deletion from Cloudinary fails.
  */
 const updateUserAvatar = asyncHandler(async (req, res) => {
   const avatarLocalPath = req.file?.path;
