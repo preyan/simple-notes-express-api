@@ -4,7 +4,7 @@ A project made only to lean backend development using NodeJS.
 
 ## Table of Contents
 
-- [DataModels] (#data-model)
+- [Data Models](#data-models)
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies](#technologies)
