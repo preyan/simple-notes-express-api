@@ -41,7 +41,7 @@ A project made only to lean backend development using NodeJS.
   "title": "string",
   "content": "string",
   "author": "ObjectId user",
-  "images": "String[]", //array of cloundinary urls
+  "images": "String[]", //array of cloudinary urls
   "isDeleted": "boolean",
   "createdAt": "timestamp",
   "updatedAt": "timestamp",

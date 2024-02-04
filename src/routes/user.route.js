@@ -16,10 +16,8 @@ router.route('/login').post(userController.loginUser);
 
 //Secured routes
 router.route('/logout').post(verifyJWTToken, userController.logoutUser);
--(
-  //verifyJWTToken is a middleware which checks if the user is authenticated
-  router.route('/refresh-token').post(userController.refreshAccessToken)
-);
+//verifyJWTToken is a middleware which checks if the user is authenticated
+router.route('/refresh-token').post(userController.refreshAccessToken);
 
 // You can add multiple middlewares like below.
 // router.route('logout').post(verifyJWTToken, AnotherMiddleware, logoutUser);
