@@ -35,11 +35,9 @@ const noteSchema = new Schema(
     },
     isDeleted: {
       type: Boolean,
-      default: false,
     },
     deletedAt: {
       type: Date,
-      default: null,
     },
   },
   {
