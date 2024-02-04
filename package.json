@@ -9,9 +9,33 @@
     "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint \"src/**/*.js\"",
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
     "coverage": "nyc --reporter=text jest",
     "report": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageReporters": [
+      "text",
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "transform": {}
   },
   "keywords": [
     "backend",
