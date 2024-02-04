@@ -1,7 +1,7 @@
 import { asyncHandler } from '../utils/asyncHandler.js';
 import ApiError from '../utils/apiError.js';
 import ApiResponse from '../utils/apiResponse.js';
-import { UserValidator } from '../validators/user.validator.js';
+import { CommonValidator } from '../validators/common.validator.js';
 import { User } from '../models/user.model.js';
 import { uploadOnCloudinary } from '../utils/cloudinary.js';
 import { cookieOptions } from '../constants.js';
@@ -47,7 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   //Check if any field is empty
   const fieldsToValidate = [fullName, username, email, password];
-  if (UserValidator.isEmptyOrUnavailable(fieldsToValidate)) {
+  if (CommonValidator.isEmptyOrUnavailable(fieldsToValidate)) {
     console.log('All fields are required');
     throw new ApiError(400, 'All fields are required');
   }
