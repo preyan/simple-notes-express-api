@@ -4,6 +4,9 @@
  * @returns {boolean} - True if any form field is empty or unavailable, false otherwise.
  */
 const isEmptyOrUnavailable = (formFields) => {
+  if (!formFields.length) {
+    return true; // Returns true if formFields is an empty array
+  }
   return formFields.some(
     (field) => field === undefined || field === null || field?.trim() === ''
   );
