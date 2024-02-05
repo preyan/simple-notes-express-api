@@ -14,6 +14,10 @@ This project creates a simple backend for a note taking app similar to Google Ke
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
 - [License](#license)
+- [Commit Message Guidelines](#commit-message-guidelines)
+- [Versioning](#versioning)
+- [Code of Conduct](#code-of-conduct)
+- [Acknowledgements](#acknowledgements)
 
 ## Data Models
 
