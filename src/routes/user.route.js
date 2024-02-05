@@ -11,7 +11,7 @@ const router = Router();
 
 /**
  * @openapi
- * users/register:
+ * /users/register:
  *   post:
  *     summary: Register a new user
  *     description: Register a new user with an avatar upload.
@@ -32,7 +32,7 @@ router
 
 /**
  * @openapi
- * users/login:
+ * /users/login:
  *   post:
  *     summary: User login
  *     description: Login with user credentials.
@@ -44,7 +44,7 @@ router.route('/login').post(userController.loginUser);
 
 /**
  * @openapi
- * users/healthcheck:
+ * /users/healthcheck:
  *   get:
  *     summary: Health check
  *     description: Check the health of the user controller.
@@ -56,7 +56,7 @@ router.route('/healthcheck').get(userController.healthCheck);
 
 /**
  * @openapi
- * users/logout:
+ * /users/logout:
  *   post:
  *     summary: Logout a user
  *     description: Logout the currently authenticated user.
@@ -70,7 +70,7 @@ router.route('/logout').post(verifyJWTToken, userController.logoutUser);
 
 /**
  * @openapi
- * users/refresh-token:
+ * /users/refresh-token:
  *   post:
  *     summary: Refresh access token
  *     description: Refresh the access token for an authenticated user.
