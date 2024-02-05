@@ -10,7 +10,7 @@
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint \"src/**/*.js\""
   },
-    "keywords": [
+  "keywords": [
     "backend",
     "node",
     "express",
@@ -20,7 +20,9 @@
   "license": "MIT",
   "devDependencies": {
     "nodemon": "^3.0.2",
-    "prettier": "^3.2.2"
+    "prettier": "^3.2.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
