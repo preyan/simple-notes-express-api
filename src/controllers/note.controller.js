@@ -1,8 +1,8 @@
 import ApiError from '../utils/apiError.js';
 import ApiResponse from '../utils/apiResponse.js';
 import { CommonValidator } from '../validators/common.validator.js';
-import Note from '../models/note.model.js';
-import User from '../models/user.model.js';
+import { Note } from '../models/note.model.js';
+import { User } from '../models/user.model.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
 import { uploadOnCloudinary } from '../utils/cloudinary.js';
 
@@ -51,20 +51,22 @@ export const createNote = asyncHandler(async (req, res) => {
 
 /**
  * Get all notes for a user
- * @param {string} authorId - The ID of the author
  * @param {function} asyncHandler - The async handler middleware
  * @param {object} req - The request object
  * @param {object} res - The response object
  * @param {function} next - The next middleware function
  * @returns {object} - The response object containing the notes
  */
-export const getNotes = (authorId = asyncHandler(async (req, res) => {
-  const notes = await Note.find(authorId);
+export const getNotes = asyncHandler(async (req, res) => {
+  const author = await User.findOne({ refreshToken })._id;
+  const notes = await Note.find(author);
   if (!notes) {
     return new ApiError(404, 'No notes found');
   }
-  return res.status(200).json(new ApiResponse(notes));
-}));
+  return res
+    .status(200)
+    .json(new ApiResponse(200, notes, 'Notes retrieved successfully'));
+});
 
 /**
  * Updates a note.
