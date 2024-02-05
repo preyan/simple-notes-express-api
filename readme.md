@@ -5,8 +5,8 @@ This project creates a simple backend for a note taking app similar to Google Ke
 
 ### TO DO
 
-- [x] Add Build Instructions to README
 - [ ] Add Deployment Instructions to README
+- [o] Add CI/CD Pipeline
 - [o] Add Unit Testing Framework like `Jest`
 - [o] Add First Unit Test
 - [o] Add Logging middleware and logger utility
@@ -16,7 +16,6 @@ This project creates a simple backend for a note taking app similar to Google Ke
 - [ ] Fix `eslint` issues
 
 - [ ] Improve Unit Test Coverage
-- [ ] Add CI/CD Pipeline
 - [ ] Add Logging
 - [ ] Add Better Error Handling
 - [ ] Add Better Documentation
