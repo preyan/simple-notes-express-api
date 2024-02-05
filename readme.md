@@ -71,7 +71,7 @@ Mention the technologies and frameworks used in your project. Include versions i
 - MongoDB
 - Mongoose
 - JWT
-- SwaggerDocs
+- Swagger
 
 ## Getting Started
 
@@ -112,7 +112,7 @@ The project is designed to be easy to use and integrate into other projects. The
 
 ## API Documentation
 
-The API documentation is made available via [Swagger](https://localhost:5000/swagger)
+The API documentation is made available via [Swagger](https://localhost:5000/swagger).
 
 ## Contributing
 
@@ -121,3 +121,7 @@ Contributions are what make the open source community such an amazing place to l
 ## License
 
 MIT @ [Preyan Bhowmick]
+
+//Give a short description of the project in 20 words or less
+
+Simple Notes Backend is a project that aims to provide a simple and easy-to-use backend for a note taking app.
