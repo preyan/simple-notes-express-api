@@ -1,14 +1,17 @@
 {
   "name": "simple-notes-backend",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A project to help learn backend development",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
+    "dev": "nodemon --no-warnings -r dotenv/config --experimental-json-modules src/index.js",
     "format": "prettier --write \"src/**/*.js\"",
-    "lint": "eslint \"src/**/*.js\""
+    "lint": "eslint \"src/**/*.js\"",
+    "test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --watch ",
+    "test:coverage": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
   },
   "keywords": [
     "backend",
@@ -19,6 +22,7 @@
   "author": "Preyan Bhowmick",
   "license": "MIT",
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.0.2",
     "prettier": "^3.2.2",
     "swagger-jsdoc": "^6.2.8",

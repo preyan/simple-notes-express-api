@@ -3,6 +3,25 @@
 A project made only to lean backend development using NodeJS. Course followed [NodeJS Backend Development](https://www.youtube.com/playlist?list=PLu71SKxNbfoBGh_8p_NS-ZAh6v7HhYqHW) by [Hitesh Choudhary](https://www.youtube.com/@chaiaurcode)
 This project creates a simple backend for a note taking app similar to Google Keep.
 
+### TO DO
+
+- [x] Add Build Instructions to README
+- [ ] Add Deployment Instructions to README
+- [o] Add Unit Testing Framework like `Jest`
+- [o] Add First Unit Test
+- [o] Add Logging middleware and logger utility
+- [ ] Implement request and error logging
+- [ ] Migration to `Typescript`
+- [ ] Add `eslint` and linting guide
+- [ ] Fix `eslint` issues
+
+- [ ] Improve Unit Test Coverage
+- [ ] Add CI/CD Pipeline
+- [ ] Add Logging
+- [ ] Add Better Error Handling
+- [ ] Add Better Documentation
+- [ ] Add Better Validation
+
 ## Table of Contents
 
 - [Data Models](#data-models)
