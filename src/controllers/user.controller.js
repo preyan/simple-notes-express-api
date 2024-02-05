@@ -31,6 +31,19 @@ const generateAccessAndRefreshToken = async (userId) => {
 };
 
 /**
+ * Health check endpoint.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The response object with a success message.
+ * @throws {ApiError} - If the server is not running.
+ */
+const healthCheck = asyncHandler(async (req, res) => {
+  return await res
+    .status(200)
+    .json(new ApiResponse(200, null, 'Server is running'));
+});
+
+/**
  * Registers a user.
  * @param {Object} req - The request object.
  * @param {Object} res - The response object.
@@ -371,6 +384,7 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
 });
 
 export const userController = {
+  healthCheck,
   registerUser,
   loginUser,
   logoutUser,
