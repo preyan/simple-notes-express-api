@@ -11,7 +11,7 @@ const router = Router();
 
 /**
  * @openapi
- * /api/v1/notes/:
+ * notes/:
  *   get:
  *     summary: Get all notes
  *     description: Retrieve all notes.
@@ -25,7 +25,7 @@ router.route('/').get(verifyJWTToken, noteController.getNotes);
 
 /**
  * @openapi
- * /api/v1/notes/create:
+ * notes/create:
  *   post:
  *     summary: Create a new note
  *     description: Create a new note with file upload using multer middleware.
@@ -48,7 +48,7 @@ router
 
 /**
  * @openapi
- * /api/v1/notes/delete/{id}:
+ * notes/delete/{id}:
  *   delete:
  *     summary: Delete a note by ID
  *     description: Delete a note by its ID.
@@ -68,7 +68,7 @@ router.route('/delete/:id').delete(verifyJWTToken, noteController.deleteNote);
 
 /**
  * @openapi
- * /api/v1/notes/update/{id}:
+ * notes/update/{id}:
  *   put:
  *     summary: Update a note by ID
  *     description: Update a note by its ID.
