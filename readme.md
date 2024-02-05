@@ -95,6 +95,48 @@ Mention the technologies and frameworks used in your project. Include versions i
 - JWT
 - Swagger
 
+## Folder Structure
+
+```bash
+.
+├── .env.sample
+├── .github
+│   └── workflows
+│       └── test_pipeline.yml
+├── .gitignore
+├── .prettierignore
+├── .prettierrc
+├── jest.config.js
+├── package.json
+├── public
+│   └── temp
+│       └── .gitkeep
+├── readme.md
+└── src
+    ├── app.js
+    ├── constants.js
+    ├── controllers
+    │   ├── note.controller.js
+    │   ├── note.controller.spec.js
+    │   └── user.controller.js
+    ├── db
+    │   └── index.js
+    ├── index.js
+    ├── middlewares
+    │   ├── auth.middleware.js
+    │   ├── log.middleware.js
+    │   └── multer.middleware.js
+    ├── models
+    │   ├── note.model.js
+    │   ├── user.model.js
+    │   └── user.model.spec.js
+    ├── routes
+    │   ├── note.route.js
+    │   └── user.route.js
+    ├── utils
+    └── validators
+```
+
 ## Getting Started
 
 ### Prerequisites

@@ -1,9 +1,9 @@
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-
-const pkg = await import('../../package.json'); //hack to fix esm issue
+import pkg from '../../package.json' assert { type: 'json' };
 
 const BASE_URL = 'http://localhost:5000/api/v1';
+const pkg = await import('../../package.json'); //hack to fix esm issue
 
 const options = {
   definition: {
