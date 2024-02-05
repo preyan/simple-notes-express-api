@@ -1,6 +1,8 @@
-import express from 'express';
-import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import express from 'express';
+import noteRouter from './routes/note.route.js';
+import userRouter from './routes/user.route.js';
 
 /**
  * This function initializes the application.
@@ -17,9 +19,9 @@ app.use(express.static('public'));
 app.use(cookieParser());
 
 // Routes go here
-import userRouter from './routes/user.route.js';
 
 // Routes declaration
 app.use('/api/v1/users', userRouter); // URL: http://localhost:5000/api/v1/users
+app.use('/api/v1/notes', noteRouter); // URL: http://localhost:5000/api/v1/notes
 
 export default app;
