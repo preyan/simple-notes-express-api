@@ -8,7 +8,7 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Simple Notes REST API Docs',
+      title: 'Simple Notes REST Api Docs',
       version: pkg.version,
       description: `<strong>Base URL :</strong> <code>${BASE_URL}</code>`,
     },
