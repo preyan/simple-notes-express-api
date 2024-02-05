@@ -9,38 +9,81 @@ import { verifyJWTToken } from '../middlewares/auth.middleware.js';
  */
 const router = Router();
 
-//Secured routes goes here
-
 /**
- * Route for getting all notes.
- * Requires JWT token verification.
+ * @openapi
+ * /api/v1/notes/:
+ *   get:
+ *     summary: Get all notes
+ *     description: Retrieve all notes.
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Notes retrieved successfully.
  */
-router.route('/').get(verifyJWTToken, noteController.getAllNotes);
+router.route('/').get(verifyJWTToken, noteController.getNotes);
 
 /**
- * Route for creating a new note.
- * Requires JWT token verification and file upload using multer middleware.
+ * @openapi
+ * /api/v1/notes/create:
+ *   post:
+ *     summary: Create a new note
+ *     description: Create a new note with file upload using multer middleware.
+ *     security:
+ *       - bearerAuth: []
+ *     consumes:
+ *       - multipart/form-data
+ *     parameters:
+ *       - in: formData
+ *         name: images
+ *         type: file
+ *         description: Images for the note.
+ *     responses:
+ *       200:
+ *         description: Note created successfully.
  */
 router
   .route('/create')
   .post(verifyJWTToken, upload.array('images'), noteController.createNote);
 
 /**
- * Route for deleting a note by ID.
- * Requires JWT token verification.
- * @param {string} id - The ID of the note to be deleted.
+ * @openapi
+ * /api/v1/notes/delete/{id}:
+ *   delete:
+ *     summary: Delete a note by ID
+ *     description: Delete a note by its ID.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         type: string
+ *         required: true
+ *         description: ID of the note to be deleted.
+ *     responses:
+ *       200:
+ *         description: Note deleted successfully.
  */
 router.route('/delete/:id').delete(verifyJWTToken, noteController.deleteNote);
 
 /**
- * Route for updating a note by ID.
- * Requires JWT token verification.
- * @param {string} id - The ID of the note to be updated.
+ * @openapi
+ * /api/v1/notes/update/{id}:
+ *   put:
+ *     summary: Update a note by ID
+ *     description: Update a note by its ID.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         type: string
+ *         required: true
+ *         description: ID of the note to be updated.
+ *     responses:
+ *       200:
+ *         description: Note updated successfully.
  */
 router.route('/update/:id').put(verifyJWTToken, noteController.updateNote);
-
-// You can add multiple middlewares like below.
-// router.route('logout').post(verifyJWTToken, AnotherMiddleware, logoutUser);
-// AnotherMiddleware is a placeholder for another middleware
 
 export default router;

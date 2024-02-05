@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { userController } from '../controllers/user.controller.js';
 import { upload } from '../middlewares/multer.middleware.js';
+import { userController } from '../controllers/user.controller.js';
 import { verifyJWTToken } from '../middlewares/auth.middleware.js';
 
 /**
@@ -9,18 +9,78 @@ import { verifyJWTToken } from '../middlewares/auth.middleware.js';
  */
 const router = Router();
 
+/**
+ * @openapi
+ * /api/v1/users/register:
+ *   post:
+ *     summary: Register a new user
+ *     description: Register a new user with an avatar upload.
+ *     consumes:
+ *       - multipart/form-data
+ *     parameters:
+ *       - in: formData
+ *         name: avatar
+ *         type: file
+ *         description: User's avatar image file.
+ *     responses:
+ *       200:
+ *         description: User registered successfully.
+ */
 router
   .route('/register')
   .post(upload.single('avatar'), userController.registerUser);
+
+/**
+ * @openapi
+ * /api/v1/users/login:
+ *   post:
+ *     summary: User login
+ *     description: Login with user credentials.
+ *     responses:
+ *       200:
+ *         description: User logged in successfully.
+ */
 router.route('/login').post(userController.loginUser);
 
-//Secured routes
+/**
+ * @openapi
+ * /api/v1/users/health-check:
+ *   get:
+ *     summary: Health check
+ *     description: Check the health of the user controller.
+ *     responses:
+ *       200:
+ *         description: Health check successful.
+ */
+router.route('/health-check').get(userController.healthCheck);
+
+/**
+ * @openapi
+ * /api/v1/users/logout:
+ *   post:
+ *     summary: Logout a user
+ *     description: Logout the currently authenticated user.
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: User logged out successfully.
+ */
 router.route('/logout').post(verifyJWTToken, userController.logoutUser);
-//verifyJWTToken is a middleware which checks if the user is authenticated
+
+/**
+ * @openapi
+ * /api/v1/users/refresh-token:
+ *   post:
+ *     summary: Refresh access token
+ *     description: Refresh the access token for an authenticated user.
+ *     responses:
+ *       200:
+ *         description: Access token refreshed successfully.
+ */
 router.route('/refresh-token').post(userController.refreshAccessToken);
 
-// You can add multiple middlewares like below.
-// router.route('logout').post(verifyJWTToken, AnotherMiddleware, logoutUser);
-// AnotherMiddleware is a placeholder for another middleware
+// Example with multiple middlewares
+// router.route('/logout').post(verifyJWTToken, AnotherMiddleware, userController.logoutUser);
 
 export default router;
