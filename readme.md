@@ -1,6 +1,6 @@
 # Simple Notes Backend
 
-A project made only to lean backend development using NodeJS.
+A project made only to lean backend development using NodeJS. Course followed [NodeJS Backend Development](https://www.youtube.com/playlist?list=PLu71SKxNbfoBGh_8p_NS-ZAh6v7HhYqHW) by [Hitesh Choudhary](https://www.youtube.com/@chaiaurcode)
 This project creates a simple backend for a note taking app similar to Google Keep.
 
 ## Table of Contents
@@ -120,8 +120,26 @@ Contributions are what make the open source community such an amazing place to l
 
 ## License
 
-MIT @ [Preyan Bhowmick]
+MIT @ [Preyan Bhowmick](github.com/preyan)
 
-//Give a short description of the project in 20 words or less
+## Commit Message Guidelines
 
-Simple Notes Backend is a project that aims to provide a simple and easy-to-use backend for a note taking app.
+- Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
+- Use the present tense ("Add feature" not "Added feature").
+- Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+- Limit the first line to 72 characters or less.
+- Reference issues and pull requests liberally after the first line.
+- When only changing documentation, include `[ci skip]` in the commit message.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the tags on this repository.
+
+## Code of Conduct
+
+Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
+
+## Acknowledgements
+
+- [Hitesh Choudhary](https://www.youtube.com/@chaiaurcode)
+- [Github Copilot](https://copilot.github.com/)
