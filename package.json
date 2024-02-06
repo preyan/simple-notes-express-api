@@ -1,6 +1,6 @@
 {
   "name": "simple-notes-backend",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A project to help learn backend development",
   "main": "index.js",
   "type": "module",
@@ -18,7 +18,11 @@
     "backend",
     "node",
     "express",
-    "mongodb"
+    "mongodb",
+    "mongoose",
+    "jwt",
+    "cloudinary",
+    "swagger"
   ],
   "author": "Preyan Bhowmick",
   "license": "MIT",
