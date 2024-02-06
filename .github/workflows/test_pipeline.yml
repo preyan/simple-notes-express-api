@@ -14,13 +14,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: '21.6.1'
-
+          node-version: '20'
+          architecture: 'x64' # optional, x64 or x86. If not specified, x64 will be used by default
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+  
       - name: Install dependencies
         run: npm ci
 
