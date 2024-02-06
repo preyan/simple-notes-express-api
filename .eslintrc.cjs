@@ -24,9 +24,10 @@ module.exports = {
     'no-var': 'error',
     'arrow-parens': ['error', 'always'],
     'consistent-return': 'error',
-    indent: ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': ['error', 'unix'],
     'no-unused-vars': 'error',
+    'no-undef': 'error',
+    indent: ['error', 2, { SwitchCase: 1 }],
   },
   ignorePatterns: ['**/*.spec.js'],
 };
