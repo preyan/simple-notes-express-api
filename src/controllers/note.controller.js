@@ -58,6 +58,7 @@ export const createNote = asyncHandler(async (req, res) => {
  * @returns {object} - The response object containing the notes
  */
 export const getNotes = asyncHandler(async (req, res) => {
+  const refreshToken = req.cookies.refreshToken;
   const author = await User.findOne({ refreshToken })._id;
   const notes = await Note.find(author);
   if (!notes) {

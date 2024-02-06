@@ -1,3 +1,10 @@
+/* eslint-disable no-undef */
+
+import {
+  deleteFromCloudinary,
+  uploadOnCloudinary,
+} from '../utils/cloudinary.js';
+
 import ApiError from '../utils/ApiError.js';
 import ApiResponse from '../utils/ApiResponse.js';
 import { CommonValidator } from '../validators/common.validator.js';
@@ -5,7 +12,6 @@ import { User } from '../models/user.model.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
 import { cookieOptions } from '../constants.js';
 import jwt from 'jsonwebtoken';
-import { uploadOnCloudinary } from '../utils/cloudinary.js';
 
 /**
  * Generates access and refresh tokens for a given user ID.

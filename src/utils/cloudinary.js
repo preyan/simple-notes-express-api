@@ -26,6 +26,7 @@ export const uploadOnCloudinary = async (localFilePath) => {
   } catch (error) {
     fs.unlinkSync(localFilePath); // Deletes the file from the local storage when an error occurs
     console.error(error);
+    return error;
   }
 };
 
@@ -36,5 +37,6 @@ export const deleteFromCloudinary = async (publicId) => {
     return deleteResponse;
   } catch (error) {
     console.error(error);
+    return error;
   }
 };
