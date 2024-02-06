@@ -1,9 +1,33 @@
-# Simple Notes Backend
+# Simple Notes Backend 
+
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/preyan/learn-backend/test_pipeline.yml?style=for-the-badge&label=build)
+![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/preyan/learn-backend/main?style=for-the-badge&label=main%20version)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/w/preyan/learn-backend/main?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/preyan/learn-backend?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/preyan/learn-backend?style=for-the-badge)
 
 A project made only to lean backend development using NodeJS. Course followed [NodeJS Backend Development](https://www.youtube.com/playlist?list=PLu71SKxNbfoBGh_8p_NS-ZAh6v7HhYqHW) by [Hitesh Choudhary](https://www.youtube.com/@chaiaurcode)
 This project creates a simple backend for a note taking app similar to Google Keep.
 
-### TO DO
+## Table of Contents
+
+- [TODO List](#todo-list)
+- [Data Models](#data-models)
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Folder Structure](#folder-structure)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Commit Message Guidelines](#commit-message-guidelines)
+- [Versioning](#versioning)
+- [Code of Conduct](#code-of-conduct)
+- [Acknowledgements](#acknowledgements)
+
+## TODO List
 
 - [x] Add CI/CD Pipeline
 - [x] Add Unit Testing Framework like `Jest`
@@ -23,22 +47,6 @@ This project creates a simple backend for a note taking app similar to Google Ke
 - [ ] Add Better Documentation
 - [ ] Add Better Validation
 
-## Table of Contents
-
-- [Data Models](#data-models)
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies](#technologies)
-- [Folder Structure](#folder-structure)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Commit Message Guidelines](#commit-message-guidelines)
-- [Versioning](#versioning)
-- [Code of Conduct](#code-of-conduct)
-- [Acknowledgements](#acknowledgements)
 
 ## Data Models
 
