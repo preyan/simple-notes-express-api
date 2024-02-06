@@ -27,6 +27,7 @@ This project creates a simple backend for a note taking app similar to Google Ke
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies](#technologies)
+- [Folder Structure](#folder-structure)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
