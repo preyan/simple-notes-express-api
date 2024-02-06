@@ -5,16 +5,18 @@ This project creates a simple backend for a note taking app similar to Google Ke
 
 ### TO DO
 
-- [ ] Add Deployment Instructions to README
 - [x] Add CI/CD Pipeline
 - [x] Add Unit Testing Framework like `Jest`
 - [x] Add First Unit Test
 - [x] Add Logging middleware and logger utility
 - [ ] Implement request and error logging
 - [ ] Migration to `Typescript`
-- [ ] Add `eslint` and linting guide
-- [ ] Fix `eslint` issues
+- [x] Add `eslint` and linting guide
+- [x] Fix `eslint` issues
+- [ ] Improve `eslint` for catching more issues
+- [ ] Remove `eslint` hacks used for `jest` and `no-undef`
 
+- [ ] Add Deployment Instructions
 - [ ] Improve Unit Test Coverage
 - [ ] Add Logging
 - [ ] Add Better Error Handling
@@ -27,6 +29,7 @@ This project creates a simple backend for a note taking app similar to Google Ke
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies](#technologies)
+- [Folder Structure](#folder-structure)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)

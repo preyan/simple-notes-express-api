@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 /**
  * The name of the database used in the application.
  * @type {string}

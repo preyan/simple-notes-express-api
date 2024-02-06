@@ -1,5 +1,5 @@
-import ApiError from '../utils/apiError.js';
-import ApiResponse from '../utils/apiResponse.js';
+import ApiError from '../utils/ApiError.js';
+import ApiResponse from '../utils/ApiResponse.js';
 import { CommonValidator } from '../validators/common.validator.js';
 import { Note } from '../models/note.model.js';
 import { User } from '../models/user.model.js';
@@ -58,6 +58,7 @@ export const createNote = asyncHandler(async (req, res) => {
  * @returns {object} - The response object containing the notes
  */
 export const getNotes = asyncHandler(async (req, res) => {
+  const refreshToken = req.cookies.refreshToken;
   const author = await User.findOne({ refreshToken })._id;
   const notes = await Note.find(author);
   if (!notes) {

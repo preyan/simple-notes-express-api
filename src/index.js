@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 /**
  * This file serves as the entry point of the application.
  * It imports the necessary modules, configures the environment variables,

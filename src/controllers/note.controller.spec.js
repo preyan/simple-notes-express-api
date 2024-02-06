@@ -1,5 +1,5 @@
-import ApiError from '../utils/apiError.js';
-import ApiResponse from '../utils/apiResponse.js';
+import ApiError from '../utils/ApiError.js';
+import ApiResponse from '../utils/ApiResponse.js';
 import { CommonValidator } from '../validators/common.validator.js';
 import { Note } from '../models/note.model.js';
 import { User } from '../models/user.model.js';
@@ -7,8 +7,8 @@ import { jest } from '@jest/globals';
 import { noteController } from './note.controller.js';
 import { uploadOnCloudinary } from '../utils/cloudinary.js';
 
-jest.mock('../utils/apiError.js');
-jest.mock('../utils/apiResponse.js');
+jest.mock('../utils/ApiError.js');
+jest.mock('../utils/ApiResponse.js');
 jest.mock('../validators/common.validator.js');
 jest.mock('../models/note.model.js');
 jest.mock('../models/user.model.js');

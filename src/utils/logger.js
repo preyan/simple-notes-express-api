@@ -1,5 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+/* eslint-disable no-undef */
+
+import fs from 'fs';
+import path from 'path';
 
 class Logger {
   static log(message) {
