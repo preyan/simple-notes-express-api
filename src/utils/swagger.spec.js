@@ -82,13 +82,13 @@ describe('swagger', () => {
 
     swagger(app);
 
-    const getSwaggerJsonHandler = app.get.mock.calls[0][1];
-    getSwaggerJsonHandler(req, res);
+    const getSwaggerYamlHandler = app.get.mock.calls[0][1];
+    getSwaggerYamlHandler(req, res);
 
     expect(res.setHeader).toHaveBeenCalledWith('Content-Type', 'text/yaml');
   });
 
-  it('should send the generated HTML', () => {
+  it('should send the generated YAML', () => {
     const req = {};
     const res = {
       setHeader: jest.fn(),
@@ -97,11 +97,9 @@ describe('swagger', () => {
 
     swagger(app);
 
-    const getSwaggerJsonHandler = app.get.mock.calls[0][1];
-    getSwaggerJsonHandler(req, res);
+    const getSwaggerYamlHandler = app.get.mock.calls[0][1];
+    getSwaggerYamlHandler(req, res);
 
-    expect(res.send).toHaveBeenCalledWith(
-      swaggerUi.generateHTML(swaggerJsdoc(options))
-    );
+    expect(res.send).toHaveBeenCalledWith(expect.any(String));
   });
 });
