@@ -37,7 +37,7 @@ This project creates a simple backend for a note taking app similar to Google Ke
 - [ ] Migration to `Typescript`
 - [x] Add `eslint` and linting guide
 - [x] Fix `eslint` issues
-- [ ] Improve `eslint` for catching more issues
+- [ ] Improve `eslint` to catch more issues
 - [ ] Remove `eslint` hacks used for `jest` and `no-undef`
 
 - [ ] Add Deployment Instructions
@@ -60,7 +60,7 @@ This project creates a simple backend for a note taking app similar to Google Ke
   "password": "string",
   "notes": "ObjectId[] notes",
   "refreshToken": "string", // jwt token
-  "avatar": "string", // cloudinary url
+  "avatar": "string", // Cloudinary URL
   "createdAt": "timestamp",
   "updatedAt": "timestamp"
 }
@@ -74,7 +74,7 @@ This project creates a simple backend for a note taking app similar to Google Ke
   "title": "string",
   "content": "string",
   "author": "ObjectId user",
-  "images": "String[]", //array of cloudinary urls
+  "images": "String[]", //array of Cloudinary URLs
   "isDeleted": "boolean",
   "createdAt": "timestamp",
   "updatedAt": "timestamp",
@@ -84,7 +84,7 @@ This project creates a simple backend for a note taking app similar to Google Ke
 
 ## Introduction
 
-Simple Notes Backend is a project that aims to provide a simple and easy-to-use backend for a note taking app. It is built using Node.js, Express, and MongoDB. The project includes user authentication, note creation, and note management features. It also includes an API for accessing and managing notes. The project is designed to be easy to set up and use, making it a great starting point for building a note taking app. It also includes detailed documentation on how to use the API, making it easy for developers to integrate the backend into their projects. Go to [API Documentation](#api-documentation) for more details.
+Simple Notes Backend is a project that aims to provide a simple and easy-to-use backend for a note taking app. It is built using Node.js, Express, and MongoDB. The project includes user authentication, note creation, and note management features. It also includes an API for accessing and managing notes. The project is designed to be easy to set up and use, making it a great starting point for building a note-taking app. It also includes detailed documentation on how to use the API, making it easy for developers to integrate the backend into their projects. Go to [API Documentation](#api-documentation) for more details.
 
 ## Features
 
@@ -184,15 +184,13 @@ Mention the technologies and frameworks used in your project. Include versions i
 
 The project is designed to be easy to use and integrate into other projects. The API documentation provides detailed information on how to use the API. The project includes user authentication, note creation, and note management features, making it a great starting point for building a note taking app.
 
-Go
-
 ## API Documentation
 
-The API documentation is made available via [Swagger](https://localhost:5000/swagger). Openapi documentation is also available at [http://localhost:5000/api-docs](http://localhost:5000/api-docs)
+The API documentation is made available via [Swagger](https://localhost:5000/swagger). The OPENAPI spec is also available at [http://localhost:5000/api-docs](http://localhost:5000/openapi-spec.yaml)
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated. Feel free to fork the project and create a pull request with your changes.
+Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated. Feel free to fork the project and create a pull request with your changes.
 
 ## License
 
