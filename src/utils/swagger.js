@@ -1,8 +1,14 @@
+/* eslint-disable no-undef */
+
+import fs from 'fs';
+import path from 'path';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import yaml from 'js-yaml';
 
 const BASE_URL = 'http://localhost:5000/api/v1';
-const pkg = await import('../../package.json'); // Import package.json to get the version since it's not a module
+const pkgPath = path.resolve(process.cwd(), 'package.json');
+const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
 
 const options = {
   definition: {
@@ -32,8 +38,8 @@ const options = {
       },
     ],
     externalDocs: {
-      description: `${BASE_URL}/swagger.json`,
-      url: 'swagger.json',
+      description: `/openapi-spec.yaml`,
+      url: `/openapi-spec.yaml`,
     },
   },
   apis: ['./src/routes/*.js'],
@@ -43,11 +49,12 @@ const specs = swaggerJsdoc(options);
 
 export const swagger = (app) => {
   // Serve the Swagger UI along
-  app.use('/swagger', swaggerUi.serve, swaggerUi.setup(specs));
-  // Docs as JSON
-  app.get('swagger.json', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(swaggerUi.generateHTML(specs));
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+  // Serve the openapi spec in yaml format
+  app.get(`/openapi-spec.yaml`, (req, res) => {
+    const swaggerYaml = yaml.dump(specs);
+    res.setHeader('Content-Type', 'text/yaml');
+    res.send(swaggerYaml);
   });
 };
 

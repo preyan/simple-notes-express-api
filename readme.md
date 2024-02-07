@@ -1,4 +1,4 @@
-# Simple Notes Backend 
+# Simple Notes Backend
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/preyan/learn-backend/test_pipeline.yml?style=for-the-badge&label=build)
 ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/preyan/learn-backend/main?style=for-the-badge&label=main%20version)
@@ -46,7 +46,6 @@ This project creates a simple backend for a note taking app similar to Google Ke
 - [ ] Add Better Error Handling
 - [ ] Add Better Documentation
 - [ ] Add Better Validation
-
 
 ## Data Models
 
@@ -185,9 +184,11 @@ Mention the technologies and frameworks used in your project. Include versions i
 
 The project is designed to be easy to use and integrate into other projects. The API documentation provides detailed information on how to use the API. The project includes user authentication, note creation, and note management features, making it a great starting point for building a note taking app.
 
+Go
+
 ## API Documentation
 
-The API documentation is made available via [Swagger](https://localhost:5000/swagger).
+The API documentation is made available via [Swagger](https://localhost:5000/swagger). Openapi documentation is also available at [http://localhost:5000/api-docs](http://localhost:5000/api-docs)
 
 ## Contributing
 
