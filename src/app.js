@@ -12,8 +12,7 @@ import userRouter from './routes/user.route.js';
  * @returns {Object} The initialized application object.
  */
 
-const app = express();
-aa;
+const app = expresss();
 
 app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true }));
 app.use(express.json({ limit: '16kb' }));
