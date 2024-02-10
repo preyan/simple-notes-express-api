@@ -52,7 +52,7 @@ export const swagger = (app) => {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
   // Serve the openapi spec in yaml format
   app.get(`/openapi-spec.yaml`, (req, res) => {
-    const swaggerYaml = yaml.dump(specs);
+    const swaggerYaml = yaml.dump(specs1);
     res.setHeader('Content-Type', 'text/yaml');
     res.send(swaggerYaml);
   });
