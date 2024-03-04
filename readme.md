@@ -2,12 +2,10 @@
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/preyan/learn-backend/test_pipeline.yml?style=for-the-badge&label=build)
 ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/preyan/learn-backend/main?style=for-the-badge&label=main%20version)
-![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/w/preyan/learn-backend/main?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/preyan/learn-backend?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/preyan/learn-backend?style=for-the-badge)
 
-A project made only to lean backend development using NodeJS. Course followed [NodeJS Backend Development](https://www.youtube.com/playlist?list=PLu71SKxNbfoBGh_8p_NS-ZAh6v7HhYqHW) by [Hitesh Choudhary](https://www.youtube.com/@chaiaurcode)
-This project creates a simple backend for a note taking app similar to Google Keep.
+A project made only to lean backend development using NodeJS. This project creates a simple backend for a note taking app similar to Google Keep.
 
 ## Table of Contents
 
@@ -22,10 +20,6 @@ This project creates a simple backend for a note taking app similar to Google Ke
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
 - [License](#license)
-- [Commit Message Guidelines](#commit-message-guidelines)
-- [Versioning](#versioning)
-- [Code of Conduct](#code-of-conduct)
-- [Acknowledgements](#acknowledgements)
 
 ## TODO List
 
@@ -195,25 +189,3 @@ Contributions are what makes the open-source community such an amazing place to 
 ## License
 
 MIT @ [Preyan Bhowmick](github.com/preyan)
-
-## Commit Message Guidelines
-
-- Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
-- Use the present tense ("Add feature" not "Added feature").
-- Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
-- Limit the first line to 72 characters or less.
-- Reference issues and pull requests liberally after the first line.
-- When only changing documentation, include `[ci skip]` in the commit message.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the tags on this repository.
-
-## Code of Conduct
-
-Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
-
-## Acknowledgements
-
-- [Hitesh Choudhary](https://www.youtube.com/@chaiaurcode)
-- [Github Copilot](https://copilot.github.com/)
